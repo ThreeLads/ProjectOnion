@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 public class World : MonoBehaviour {
 
@@ -30,6 +31,23 @@ public class World : MonoBehaviour {
 
 				GameObject tileInstance = Instantiate(toInstantiate, new Vector3(x, y, 0.0F), Quaternion.identity) as GameObject;
 
+				tileInstance.transform.SetParent(this.tileHolder);
+			}
+		}
+
+		for (float x = -10; x < this.width; x += 0.5f)
+		{
+			for (float y = -1; y < 20; y += 0.5f)
+			{
+				if (Random.value > 0.1f)
+				{
+					continue;
+				}
+				
+				GameObject toInstantiate = this.tileForFloor;
+				
+				GameObject tileInstance = Instantiate(toInstantiate, new Vector3(x, y, 0.0F), Quaternion.identity) as GameObject;
+				
 				tileInstance.transform.SetParent(this.tileHolder);
 			}
 		}
