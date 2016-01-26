@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	private Animator animator;
+
 	private Rigidbody2D rbody;
 
 	private BoxCollider2D bcoll;
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour {
 	{
 		rbody = GetComponent<Rigidbody2D>();
 		bcoll = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();
 	}
 	
     private void Flip()
@@ -32,13 +33,11 @@ public class Player : MonoBehaviour {
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-        
     }
-
     
     private void Jump()
     {
-        
+		rbody.AddForce(Vector2.up * thrust, ForceMode2D.Impulse);
     }
 
     void Update()
@@ -59,12 +58,13 @@ public class Player : MonoBehaviour {
         if (Mathf.Abs(rbody.velocity.x) > maxspeed)
             rbody.velocity = new Vector2(Mathf.Sign(rbody.velocity.x) * maxspeed, rbody.velocity.y);
 
-        if (Input.GetKeyDown("space") && Grounded)
-            rbody.AddForce(Vector2.up * thrust, ForceMode2D.Impulse);
+        if (Input.GetKeyDown ("space") && Grounded)
+			Jump ();
 
         if (h > 0 && !facingRight)
             Flip();
         else if (h < 0 && facingRight)
             Flip();
-    }
+	}
+
 }
