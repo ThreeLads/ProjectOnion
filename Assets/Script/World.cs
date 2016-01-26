@@ -44,7 +44,7 @@ public class World : MonoBehaviour {
 					continue;
 				}
 				
-				GameObject toInstantiate = this.tileForFloor;
+				GameObject toInstantiate = this.tileForTop;
 				
 				GameObject tileInstance = Instantiate(toInstantiate, new Vector3(x, y, 0.0F), Quaternion.identity) as GameObject;
 				

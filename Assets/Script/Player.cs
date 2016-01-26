@@ -7,27 +7,64 @@ public class Player : MonoBehaviour {
 
 	private BoxCollider2D bcoll;
 
-	private float thrust = 5;
+    private Animator anim;
+
+    public Transform groundCheck;
+
+    private bool facingRight = true;
+
+    private bool Grounded = false;
+
+	private float thrust = 7;
+
+    private int maxspeed = 4;
 	
 	void Start()
 	{
 		rbody = GetComponent<Rigidbody2D>();
 		bcoll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown("space") && rbody.IsTouchingLayers())
-		{
-			rbody.AddForce(Vector2.up * thrust, ForceMode2D.Impulse);
-		}
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+        
+    }
 
-		if (Input.GetKey ("a")) {
-			rbody.AddForce(Vector2.left * thrust);
-		}
+    
+    private void Jump()
+    {
+        
+    }
 
-		if (Input.GetKey ("d")) {
-			rbody.AddForce(Vector2.right * thrust);
-		}
-	}
+    void Update()
+    {
+        Grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        anim.SetBool("OnGround", Grounded);
+    }
+
+	void FixedUpdate ()
+    {
+        float h = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("Speed", Mathf.Abs(h));
+
+        if (h * rbody.velocity.x < maxspeed)
+            rbody.AddForce(Vector2.right * h * 7);
+
+        if (Mathf.Abs(rbody.velocity.x) > maxspeed)
+            rbody.velocity = new Vector2(Mathf.Sign(rbody.velocity.x) * maxspeed, rbody.velocity.y);
+
+        if (Input.GetKeyDown("space") && Grounded)
+            rbody.AddForce(Vector2.up * thrust, ForceMode2D.Impulse);
+
+        if (h > 0 && !facingRight)
+            Flip();
+        else if (h < 0 && facingRight)
+            Flip();
+    }
 }
