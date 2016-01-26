@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
 	private float thrust = 7, jumpThrust = 5;
 
-    private int maxspeed = 4;
+    private int maxspeed = 5;
 	
 	void Start()
 	{
@@ -53,11 +53,19 @@ public class Player : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(h));
 
         if (h * rbody.velocity.x < maxspeed)
-            rbody.AddForce(Vector2.right * h * 7);
+            rbody.AddForce(Vector2.right * h * thrust);
 
         if (Mathf.Abs(rbody.velocity.x) > maxspeed)
             rbody.velocity = new Vector2(Mathf.Sign(rbody.velocity.x) * maxspeed, rbody.velocity.y);
 
+        if (h == 0 && Mathf.Abs(rbody.velocity.x) > 0)
+        {
+            if (Mathf.Abs(rbody.velocity.x) < 0.5)
+                rbody.velocity = new Vector2(0, rbody.velocity.y);
+            else
+                rbody.AddForce(Vector2.right * -1 * Mathf.Sign(rbody.velocity.x) * 10);
+        }
+       
         if (Input.GetKeyDown ("space") && rbody.IsTouchingLayers())
 			Jump ();
 
