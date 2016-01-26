@@ -18,13 +18,13 @@ public class World : MonoBehaviour {
 	{
 		tileHolder = new GameObject ("Tiles").transform;
 
-		for (float x = -10; x < this.width; x += 0.5f)
+		for (float x = -10; x < this.width; x += 1f)
 		{
-			for (float y = -30; y < -2; y += 0.5f)
+			for (float y = -30; y < -2; y += 1f)
 			{
 				GameObject toInstantiate = this.tileForFloor;
 
-				if (y == -2.5f)
+				if (y == -3f)
 				{
 					toInstantiate = this.tileForTop;
 				}
@@ -35,9 +35,9 @@ public class World : MonoBehaviour {
 			}
 		}
 
-		for (float x = -10; x < this.width; x += 0.5f)
+		for (float x = -10; x < this.width; x += 1f)
 		{
-			for (float y = -1; y < 20; y += 0.5f)
+			for (float y = -1; y < 20; y += 1f)
 			{
 				if (Random.value > 0.1f)
 				{

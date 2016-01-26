@@ -10,13 +10,13 @@ public class Player : MonoBehaviour
 
     private Animator anim;
 
-    public Transform groundCheck;
+    public BoxCollider2D GroundCheck;
 
     private bool facingRight = true;
 
     private bool Grounded = false;
 
-	private float thrust = 7, jumpThrust = 5;
+	private float thrust = 7, jumpThrust = 7;
 
     private int maxspeed = 5;
 	
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+		Grounded = GroundCheck.IsTouchingLayers();
         anim.SetBool("OnGround", Grounded);
     }
 
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
                 rbody.AddForce(Vector2.right * -1 * Mathf.Sign(rbody.velocity.x) * 10);
         }
        
-        if (Input.GetKeyDown ("space") && rbody.IsTouchingLayers())
+        if (Input.GetKey ("space") && Grounded)
 			Jump ();
 
         if (h > 0 && !facingRight)

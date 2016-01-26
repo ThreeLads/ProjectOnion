@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: d3b31071ce1bab340a5eadb2a1069519
-timeCreated: 1453651504
+guid: 5be2b8c51629bfd478abae3613961bc9
+timeCreated: 1453836340
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Caleum_Running_0
-    21300002: Caleum_Running_1
-    21300004: Caleum_Running_2
-    21300006: Caleum_Running_3
-    21300008: Caleum_Running_4
-    21300010: Caleum_Running_5
+    21300000: CaleumFallingCycle_0
+    21300002: CaleumFallingCycle_1
+    21300004: CaleumFallingCycle_2
+    21300006: CaleumFallingCycle_3
+    21300008: CaleumFallingCycle_4
+    21300010: CaleumFallingCycle_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,7 +55,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Caleum_Running_0
+    - name: CaleumFallingCycle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -63,9 +63,9 @@ TextureImporter:
         width: 40
         height: 47
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Caleum_Running_1
+    - name: CaleumFallingCycle_1
       rect:
         serializedVersion: 2
         x: 40
@@ -75,7 +75,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Caleum_Running_2
+    - name: CaleumFallingCycle_2
       rect:
         serializedVersion: 2
         x: 80
@@ -85,7 +85,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Caleum_Running_3
+    - name: CaleumFallingCycle_3
       rect:
         serializedVersion: 2
         x: 120
@@ -95,7 +95,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Caleum_Running_4
+    - name: CaleumFallingCycle_4
       rect:
         serializedVersion: 2
         x: 160
@@ -105,7 +105,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Caleum_Running_5
+    - name: CaleumFallingCycle_5
       rect:
         serializedVersion: 2
         x: 200
