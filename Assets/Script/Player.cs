@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
-
-	private Animator animator;
+public class Player : MonoBehaviour
+{
 
 	private Rigidbody2D rbody;
 
@@ -17,7 +16,7 @@ public class Player : MonoBehaviour {
 
     private bool Grounded = false;
 
-	private float thrust = 7;
+	private float thrust = 7, jumpThrust = 5;
 
     private int maxspeed = 4;
 	
@@ -25,6 +24,7 @@ public class Player : MonoBehaviour {
 	{
 		rbody = GetComponent<Rigidbody2D>();
 		bcoll = GetComponent<BoxCollider2D>();
+		anim = GetComponent<Animator>();
 	}
 	
     private void Flip()
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
     
     private void Jump()
     {
-		rbody.AddForce(Vector2.up * thrust, ForceMode2D.Impulse);
+		rbody.AddForce(Vector2.up * jumpThrust, ForceMode2D.Impulse);
     }
 
     void Update()
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
         if (Mathf.Abs(rbody.velocity.x) > maxspeed)
             rbody.velocity = new Vector2(Mathf.Sign(rbody.velocity.x) * maxspeed, rbody.velocity.y);
 
-        if (Input.GetKeyDown ("space") && Grounded)
+        if (Input.GetKeyDown ("space") && rbody.IsTouchingLayers())
 			Jump ();
 
         if (h > 0 && !facingRight)
