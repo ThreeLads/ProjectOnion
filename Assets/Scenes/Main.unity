@@ -126,6 +126,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5075924, guid: 157d7de0a68e8bd4595f6f33edb085c5, type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 157d7de0a68e8bd4595f6f33edb085c5, type: 2}
   m_IsPrefabParent: 0
@@ -168,7 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fd85e2606cff44186e88d089cb366c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileForFloor: {fileID: 185402, guid: dc19e83d99ffa8e4b904484fefbf1d2c, type: 2}
+  tileForFloor: {fileID: 191700, guid: f6b6d83cd5b4ab04883a97cbdae82021, type: 2}
+  tileForTop: {fileID: 149430, guid: 54f1e8d29d8261a44aab3e14ea1201e5, type: 2}
 --- !u!4 &948726634
 Transform:
   m_ObjectHideFlags: 0

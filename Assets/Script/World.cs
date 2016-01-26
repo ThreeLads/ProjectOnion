@@ -5,6 +5,8 @@ public class World : MonoBehaviour {
 
 	public GameObject tileForFloor;
 
+	public GameObject tileForTop;
+
 	private Transform tileHolder;
 
 	private List<Vector3> gridPositions = new List<Vector3>();
@@ -19,7 +21,14 @@ public class World : MonoBehaviour {
 		{
 			for (float y = -30; y < -2; y += 0.5f)
 			{
-				GameObject tileInstance = Instantiate(this.tileForFloor, new Vector3(x, y, 0.0F), Quaternion.identity) as GameObject;
+				GameObject toInstantiate = this.tileForFloor;
+
+				if (y == -2.5f)
+				{
+					toInstantiate = this.tileForTop;
+				}
+
+				GameObject tileInstance = Instantiate(toInstantiate, new Vector3(x, y, 0.0F), Quaternion.identity) as GameObject;
 
 				tileInstance.transform.SetParent(this.tileHolder);
 			}
