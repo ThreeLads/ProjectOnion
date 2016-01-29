@@ -8,9 +8,36 @@ public class buttonState //class the be the vale of the dictionary
     public float holdTime = 0; //time button has been held
 }
 
+public enum Directions
+{
+    right = 1,
+    left = -1
+}
+
 public class InputState : MonoBehaviour {
 
+    public Directions direction = Directions.right;
+    public float VelX = 0f;
+    public float VelY = 0f;
+    public float absVelX = 0f;
+    public float absVelY = 0f;
+
+    private Rigidbody2D rbody;
+
     private Dictionary<Buttons, buttonState> buttonStates = new Dictionary<Buttons, buttonState>(); //create dictionary with the keys beng the button and the value their state and time held
+
+    void Awake()
+    {
+        rbody = GetComponent<Rigidbody2D>();
+    }
+
+    void FixedUpdate()
+    {
+        absVelX = Mathf.Abs(rbody.velocity.x);
+        absVelY = Mathf.Abs(rbody.velocity.y);
+        VelX = rbody.velocity.x;
+        VelY = rbody.velocity.y;
+    }
 
     public void setButtonValue(Buttons key, bool value) //set the dictionary
     {
@@ -25,9 +52,8 @@ public class InputState : MonoBehaviour {
         }
         else if (state.value && value) //parsed and recorded match therefore being held
         {
-            state.holdTime += Time.deltaTime;  
+            state.holdTime += Time.deltaTime;
         }
-
         state.value = value; //set the recorded value to the parsed value
     }
 

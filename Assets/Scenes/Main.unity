@@ -247,6 +247,10 @@ MonoBehaviour:
     offValue: 0
     button: 1
     condition: 1
+  - axisName: Walking
+    offValue: 0
+    button: 2
+    condition: 0
   inputState: {fileID: 2040505711}
 --- !u!4 &1288357897
 Transform:
@@ -259,7 +263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &1447638875
 Prefab:
   m_ObjectHideFlags: 0
@@ -309,7 +313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5040490, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_LinearDrag
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6109198, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_UsedByEffector
@@ -327,13 +331,61 @@ Prefab:
       propertyPath: input.Array.data[1]
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 21277712, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4ce2d679626dc547868cef98ce10869,
+        type: 3}
+    - target: {fileID: 2076774, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
+      propertyPath: orthographic size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 415044, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040490, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
+      propertyPath: m_GravityScale
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6109198, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
+    - {fileID: 11421288, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2040505704 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 147932, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
   m_PrefabInternal: {fileID: 1447638875}
+--- !u!114 &2040505705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223a33675a7abeb46ba6504739cb9459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 000000000100000002000000
+  speed: 7
+  walkMultiplier: 0.5
+  walking: 0
+--- !u!61 &2040505708
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.8}
 --- !u!114 &2040505711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,5 +395,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 371a88e993c31f44491a3e2d1dd66d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  VelX: 0
+  VelY: 0
+  absVelX: 0
+  absVelY: 0
+--- !u!114 &2040505712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be4d56dc08be3e4e93e2c1b39626b15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 0000000001000000
+--- !u!114 &2040505714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77334e16ba0a69647ba5ed51163ca61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

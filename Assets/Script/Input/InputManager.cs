@@ -6,7 +6,8 @@ using System.Collections;
 public enum Buttons
 {
     Right,
-    Left
+    Left,
+    Walk
 }
 
 //enum of conditions on which to assess the values of the axis
@@ -30,12 +31,13 @@ public class InputAxisState
     {
         get
         {
-            var val = Input.GetAxis(axisName);
+            var val = Input.GetAxisRaw(axisName);
 
             switch(condition)
             {
                 case condition.greaterThan:
                     return val > offValue;
+                    
                 case condition.lessThan:
                     return val < offValue;
             }
@@ -56,7 +58,7 @@ public class InputManager : MonoBehaviour {
 	void Update () {
 	    foreach(var input in inputs)
         {
-                inputState.setButtonValue(input.button, input.value); //pass each button and its state(value) into the method of inputState
+            inputState.setButtonValue(input.button, input.value); //pass each button and its state(value) into the method of inputState
         }
 	}
 }
