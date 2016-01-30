@@ -251,6 +251,10 @@ MonoBehaviour:
     offValue: 0
     button: 2
     condition: 0
+  - axisName: Jump
+    offValue: 0
+    button: 3
+    condition: 0
   inputState: {fileID: 2040505711}
 --- !u!4 &1288357897
 Transform:
@@ -313,7 +317,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5040490, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_LinearDrag
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6109198, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_UsedByEffector
@@ -338,7 +342,7 @@ Prefab:
         type: 3}
     - target: {fileID: 2076774, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: orthographic size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 415044, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_LocalPosition.y
@@ -346,7 +350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5040490, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_GravityScale
-      value: 15
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6109198, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
@@ -370,8 +374,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputButtons: 000000000100000002000000
   speed: 7
-  walkMultiplier: 0.5
+  walkMultiplier: 2
   walking: 0
+--- !u!114 &2040505706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a6388203eaa45419e9f21160485e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  grounded: 0
+  bottomPosition: {x: 0, y: -0.27}
+  collisionRadius: 0.2
+  debugCollisionColour: {r: 1, g: 0, b: 0, a: 1}
 --- !u!61 &2040505708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -385,7 +407,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.8}
+  m_Size: {x: 0.5, y: 0.85}
 --- !u!114 &2040505711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,3 +447,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77334e16ba0a69647ba5ed51163ca61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2040505715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e24e99b13ab06a4aaf8382f02977f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 03000000
+  JumpSpeed: 15

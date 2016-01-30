@@ -29,7 +29,7 @@ public class Run : AbstractBehaviour
 
             var tmpSpeed = speed;
 
-            if (walk && walkMultiplier > 0)
+            if (walk && walkMultiplier > 0 && collisionState.grounded)
             {
                 walking = true;
                 tmpSpeed *= walkMultiplier;
@@ -37,6 +37,10 @@ public class Run : AbstractBehaviour
             
             var velX = tmpSpeed * (float)inputState.direction;
             rbody.velocity = new Vector2(velX, rbody.velocity.y);
+        }
+        else
+        {
+            rbody.velocity = new Vector2(0, rbody.velocity.y);
         }
     }
 }

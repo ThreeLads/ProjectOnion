@@ -7,7 +7,8 @@ public enum Buttons
 {
     Right,
     Left,
-    Walk
+    Walk,
+    A
 }
 
 //enum of conditions on which to assess the values of the axis

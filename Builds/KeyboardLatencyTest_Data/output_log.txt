@@ -14,13 +14,13 @@ Platform assembly: C:\Users\Lach\Documents\ProjectOnion\Builds\KeyboardLatencyTe
 Loading C:\Users\Lach\Documents\ProjectOnion\Builds\KeyboardLatencyTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Lach\Documents\ProjectOnion\Builds\KeyboardLatencyTest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Lach\Documents\ProjectOnion\Builds\KeyboardLatencyTest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.106 seconds
+- Completed reload, in  0.103 seconds
 Platform assembly: C:\Users\Lach\Documents\ProjectOnion\Builds\KeyboardLatencyTest_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Lach\Documents\ProjectOnion\Builds\KeyboardLatencyTest_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 4.911536 ms
+UnloadTime: 0.507236 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: a4d0 -> priority: 1 
+  Thread -> id: 4248 -> priority: 1 
