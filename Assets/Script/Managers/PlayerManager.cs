@@ -39,7 +39,13 @@ public class PlayerManager : MonoBehaviour {
         {
             ChangeAnimationState(3);
         }
-            
+
+
+        if (inputState.VelY > 0 && !collisionState.grounded)
+        {
+            ChangeAnimationState(2);
+        }
+
 
     }
 

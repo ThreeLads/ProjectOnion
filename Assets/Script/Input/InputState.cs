@@ -65,5 +65,13 @@ public class InputState : MonoBehaviour {
         else
             return false; //can't find button so return false
     }
+
+    public float GetButtonHoldTime(Buttons key) // function for determining whether the parsed button is pressed
+    {
+        if (buttonStates.ContainsKey(key)) //check button exists in the dictionary
+            return buttonStates[key].holdTime; //return the state of the parsed button
+        else
+            return 0; //can't find button so return false
+    }
 }
 
