@@ -7,8 +7,21 @@ public enum Buttons
 {
     Right,
     Left,
+    Up,
+    Down,
     Walk,
-    A
+    A,
+    B,
+    X,
+    Y,
+    Select,
+    Start,
+    RB,
+    LB,
+    RT,
+    LT,
+    RStick,
+    LStick
 }
 
 //enum of conditions on which to assess the values of the axis

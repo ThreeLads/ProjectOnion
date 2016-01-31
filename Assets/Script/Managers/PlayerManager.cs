@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour {
     private Run run;
     private Animator anim;
     private CollisionState collisionState;
+    private Crawl CrawlBehaviour;
 
     void Awake()
     {
@@ -14,6 +15,7 @@ public class PlayerManager : MonoBehaviour {
         run = GetComponent<Run>();
         anim = GetComponent<Animator>();
         collisionState = GetComponent<CollisionState>();
+        CrawlBehaviour = GetComponent<Crawl>();
     }
 
 	// Use this for initialization
@@ -46,6 +48,10 @@ public class PlayerManager : MonoBehaviour {
             ChangeAnimationState(2);
         }
 
+        if(CrawlBehaviour.ducking)
+        {
+            ChangeAnimationState(4);
+        }
 
     }
 

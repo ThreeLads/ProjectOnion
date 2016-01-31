@@ -249,11 +249,19 @@ MonoBehaviour:
     condition: 1
   - axisName: Walking
     offValue: 0
-    button: 2
+    button: 11
     condition: 0
   - axisName: Jump
     offValue: 0
+    button: 5
+    condition: 0
+  - axisName: Vertical
+    offValue: 0
     button: 3
+    condition: 1
+  - axisName: Crawl
+    offValue: 0
+    button: 12
     condition: 0
   inputState: {fileID: 2040505711}
 --- !u!4 &1288357897
@@ -372,7 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a33675a7abeb46ba6504739cb9459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputButtons: 000000000100000002000000
+  inputButtons: 00000000010000000b000000
+  dissableScripts: []
   speed: 7
   walkMultiplier: 2
   walking: 0
@@ -436,6 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 0000000001000000
+  dissableScripts: []
 --- !u!114 &2040505714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,5 +468,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24e99b13ab06a4aaf8382f02977f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputButtons: 03000000
-  JumpSpeed: 15
+  inputButtons: 05000000
+  dissableScripts: []
+  JumpForce: 17
+  JumpDelay: 0.1
+  JumpCount: 2
+--- !u!114 &2040505716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0374d8ffcc08a94da44c1e6718feeb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 0c0000000000000001000000
+  dissableScripts:
+  - {fileID: 2040505705}
+  - {fileID: 2040505715}
+  scale: 0.5
+  ducking: 0
+  centerOffsetY: 0.21
+  speed: 2.5

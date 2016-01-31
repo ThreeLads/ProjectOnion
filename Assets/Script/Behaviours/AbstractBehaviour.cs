@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class  AbstractBehaviour : MonoBehaviour {
 
     public Buttons[] inputButtons;
+    public MonoBehaviour[] dissableScripts;
 
     protected InputState inputState;
     protected Rigidbody2D rbody;
@@ -17,13 +18,11 @@ public abstract class  AbstractBehaviour : MonoBehaviour {
 
     }
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    protected virtual void ToggleScripts(bool value)
+    {
+        foreach(var script in dissableScripts)
+        {
+            script.enabled = value;
+        }
+    }
 }

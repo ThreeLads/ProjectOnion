@@ -21,8 +21,6 @@ public class Jump : AbstractBehaviour {
         var canJump = inputState.GetButtonValue(inputButtons[0]);
         var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
 
-        Debug.Log(holdTime);
-
         if (collisionState.grounded)
         {
             if (canJump && holdTime < 0.1f)
