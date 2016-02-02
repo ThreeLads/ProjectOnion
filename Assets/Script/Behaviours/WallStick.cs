@@ -17,9 +17,9 @@ public class WallStick : AbstractBehaviour {
 
     // Update is called once per frame
     protected virtual void Update () {
-	    if (collisionState.onWall)
+	    if (collisionState.onWall && !collisionState.grounded)
         {
-            if (!OnWallDetected)
+            if (!OnWallDetected )
             {
                 OnStick();
                 ToggleScripts(false);
@@ -30,7 +30,7 @@ public class WallStick : AbstractBehaviour {
         {
             if(OnWallDetected)
             {
-                OffWall();
+                Destick();
                 ToggleScripts(true);
                 OnWallDetected = false;
             }
@@ -46,7 +46,7 @@ public class WallStick : AbstractBehaviour {
         }
     }
 
-    protected virtual void OffWall()
+    protected virtual void Destick()
     {
         if (rbody.gravityScale != defaultGravityScale)
         {
