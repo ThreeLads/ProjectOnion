@@ -56,7 +56,7 @@ public class Crawl : AbstractBehaviour {
         {
             OnDuck(true);
         }
-        else if (ducking && !canDuck)
+        else if (ducking && (!canDuck || !collisionState.grounded))
         {
             OnDuck(false);
         }

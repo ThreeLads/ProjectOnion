@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
     private Animator anim;
     private CollisionState collisionState;
     private Crawl CrawlBehaviour;
+    private BoxCollider2D boxcol;
 
     void Awake()
     {
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour {
         anim = GetComponent<Animator>();
         collisionState = GetComponent<CollisionState>();
         CrawlBehaviour = GetComponent<Crawl>();
+        boxcol = GetComponent<BoxCollider2D>();
     }
 
 	// Use this for initialization
@@ -26,9 +28,11 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	    if(collisionState.grounded)
+        
+        if (collisionState.grounded)
         {
             ChangeAnimationState(0);
+
         }
 
         if (inputState.absVelX > 0)
@@ -51,6 +55,11 @@ public class PlayerManager : MonoBehaviour {
         if(CrawlBehaviour.ducking)
         {
             ChangeAnimationState(4);
+        }
+
+        if (collisionState.onWall && !collisionState.grounded)
+        {
+            ChangeAnimationState(5);
         }
 
     }

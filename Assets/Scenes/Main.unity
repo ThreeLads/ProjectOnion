@@ -358,7 +358,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5040490, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
       propertyPath: m_GravityScale
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6109198, guid: 2c95fe0dfc7dee843b88f3236f2c6c00, type: 2}
@@ -400,8 +400,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   grounded: 0
-  bottomPosition: {x: 0, y: -0.27}
-  collisionRadius: 0.2
+  onWall: 0
+  bottomPosition: {x: 0, y: -0.3}
+  leftPosition: {x: -0.22, y: 0.15}
+  rightPosition: {x: 0.2, y: 0.1375}
+  collisionRadius: 0.15
+  boxOffset: 0.1
   debugCollisionColour: {r: 1, g: 0, b: 0, a: 1}
 --- !u!61 &2040505708
 BoxCollider2D:
@@ -492,3 +496,18 @@ MonoBehaviour:
   ducking: 0
   centerOffsetY: 0.21
   speed: 2.5
+--- !u!114 &2040505717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2040505704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff944074dc37cd48b4ba715c2000039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 
+  dissableScripts: []
+  OnWallDetected: 0
+  slidevelocity: 2100
